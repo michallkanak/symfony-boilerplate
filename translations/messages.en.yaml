@@ -1,0 +1,13 @@
+security:
+    login:
+        title: 'Admin Login'
+        header: 'Admin Panel'
+        subheader: 'Sign in to access your dashboard'
+        email: 'Email Address'
+        email_placeholder: 'admin@example.com'
+        password: 'Password'
+        password_placeholder: 'Enter your password'
+        submit: 'Sign In'
+        error: 'Error'
+Dashboard: Dashboard
+User: User

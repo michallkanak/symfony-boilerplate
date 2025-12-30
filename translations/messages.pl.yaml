@@ -1,0 +1,13 @@
+security:
+    login:
+        title: 'Logowanie administratora'
+        header: 'Panel Administratora'
+        subheader: 'Zaloguj się, aby uzyskać dostęp do panelu'
+        email: 'Adres Email'
+        email_placeholder: 'admin@example.com'
+        password: 'Hasło'
+        password_placeholder: 'Wprowadź hasło'
+        submit: 'Zaloguj się'
+        error: 'Błąd'
+Dashboard: Dashboard
+User: Użytkownik

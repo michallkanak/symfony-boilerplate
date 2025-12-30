@@ -1,0 +1,8 @@
+easy_admin:
+    site_name: 'Admin Panel'
+    
+    # Enable pretty URLs (required in EasyAdmin 5.0)
+    formats:
+        date: 'Y-m-d'
+        time: 'H:i:s'
+        datetime: 'Y-m-d H:i:s'

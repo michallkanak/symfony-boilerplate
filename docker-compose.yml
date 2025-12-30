@@ -1,0 +1,76 @@
+services:
+  db:
+    container_name: sb-db
+    build: docker/postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dbtest
+    ports:
+      - "15432:5432"
+    volumes:
+      - ./docker/postgres/data:/var/lib/postgresql/data
+    networks:
+      - sb_network
+
+  php-fpm:
+    container_name: sb-php-fpm
+    build:
+      context: docker/php-fpm
+      args:
+        DOCKER_PHP_ENABLE_XDEBUG: 'off'
+    depends_on:
+      - db
+    environment:
+      - APP_ENV=${APP_ENV}
+      - APP_SECRET=${APP_SECRET}
+      - DATABASE_URL=${DATABASE_URL}
+      - XDEBUG_CONFIG="remote_host=host.docker.internal remote_enable=1"
+      - PHP_IDE_CONFIG="serverName=docker-server"
+    volumes:
+      - ./:/var/www
+    networks:
+      - sb_network
+
+  nginx:
+    container_name: sb-nginx
+    build:
+      context: docker/nginx
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/sites/:/etc/nginx/sites-available
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d
+    depends_on:
+      - php-fpm
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - sb_network
+
+  mailhog:
+    container_name: sb-mailhog
+    build: docker/mailhog
+    restart: always
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - sb_network
+    logging:
+      driver: 'none'
+
+  encore:
+    container_name: sb-encore
+    build:
+      context: ./docker/encore
+    volumes:
+      - ./:/var/www
+      - /var/www/vendor
+    networks:
+      - sb_network
+    tty: true
+
+networks:
+  sb_network:
