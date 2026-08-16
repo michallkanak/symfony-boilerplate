@@ -19,7 +19,7 @@ class SecurityController extends AbstractController
 
         // Get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
-        
+
         // Last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 

@@ -1,6 +1,6 @@
 # Makefile for Symfony Boilerplate
 
-.PHONY: help build up down restart logs shell php-shell test phpstan clean install
+.PHONY: help build up down restart logs shell php-shell db-shell test test-coverage phpstan phpstan-baseline cs-fix cs-check clean install clean-install
 
 ## Colors
 COLOR_RESET = \033[0m
@@ -95,6 +95,12 @@ phpstan: ## Run PHPStan analysis
 
 phpstan-baseline: ## Generate PHPStan baseline
 	docker compose exec php-fpm vendor/bin/phpstan analyse --generate-baseline
+
+cs-fix: ## Run PHP-team PHP CS Fixer to fix code style
+	docker compose exec php-fpm vendor/bin/php-cs-fixer fix
+
+cs-check: ## Check code style with PHP CS Fixer (dry-run)
+	docker compose exec php-fpm vendor/bin/php-cs-fixer fix --dry-run --diff
 
 cache-clear: ## Clear Symfony cache
 	docker compose exec php-fpm bin/console cache:clear
