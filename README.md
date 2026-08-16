@@ -1,42 +1,42 @@
-# Symfony Boilerplate - Symfony 7.4 & PHP 8.4 & PostgreSQL 17 & Node.js 22 - fast start for Your project
+# Symfony Boilerplate - Symfony 8.1 & PHP 8.4 & PostgreSQL 17 & Node.js 22 - fast start for Your project
 
 [![PHP Version](https://img.shields.io/badge/PHP-8.4-777BB4?style=flat&logo=php)](https://www.php.net/)
-[![Symfony Version](https://img.shields.io/badge/Symfony-7.4-000000?style=flat&logo=symfony)](https://symfony.com/)
+[![Symfony Version](https://img.shields.io/badge/Symfony-8.1-000000?style=flat&logo=symfony)](https://symfony.com/)
 [![PostgreSQL Version](https://img.shields.io/badge/PostgreSQL-17-336791?style=flat&logo=postgresql)](https://www.postgresql.org/)
 [![Node.js Version](https://img.shields.io/badge/Node.js-22-339933?style=flat&logo=node.js)](https://nodejs.org/)
 [![Doctrine ORM](https://img.shields.io/badge/Doctrine_ORM-3.3-FC6D26?style=flat)](https://www.doctrine-project.org/)
 [![PHPStan Level](https://img.shields.io/badge/PHPStan-Level_8-4C1?style=flat)](https://phpstan.org/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat)](LICENSE)
 
-A modern Docker-based Symfony boilerplate with PHP 8.4, Symfony 7.4, PostgreSQL 17, and the latest frontend tooling.
+A modern Docker-based Symfony boilerplate with PHP 8.4, Symfony 8.1, PostgreSQL 17, and the latest frontend tooling.
 
-## 🚀 Actual Version (December 2025)
+## 🚀 Actual Version (2026)
 
 This boilerplate has been updated to use:
-- **Symfony 7.4** (latest stable)
+- **Symfony 8.1** (latest stable)
 - **PHP 8.4** (latest stable)
 - **PostgreSQL 17** (latest stable)
 - **Node.js 22** (latest LTS)
-- **Doctrine ORM 3.3** (latest stable)
-- **Bootstrap 5.3.3** (latest)
-- **Webpack Encore 5.0** (latest)
-- **EasyAdmin 4.15** (latest)
+- **Doctrine ORM 3.6** (latest stable)
+- **Bootstrap 5.3.8** (latest)
+- **Webpack Encore 7.2** (latest)
+- **EasyAdmin 5.5** (latest)
 - **Xdebug 3.x** (latest)
 - **PHPUnit 11.5** (latest)
-- **PHPStan 2.0** (latest)
+- **PHPStan 2.2** (latest)
 
 ## 📦 What's Included
 
 ### Backend
-- Symfony 7.4 Framework
+- Symfony 8.1 Framework
 - PHP 8.4-FPM
-- Doctrine ORM 3.3 with PostgreSQL 17
-- EasyAdmin 4.15 for quick admin interfaces
+- Doctrine ORM 3.6 with PostgreSQL 17
+- EasyAdmin 5.5 for quick admin interfaces
 - Xdebug 3.x support (configurable)
 
 ### Frontend
-- Webpack Encore 5.0
-- Bootstrap 5.3.3
+- Webpack Encore 7.2
+- Bootstrap 5.3.8
 - Modern JavaScript with Babel
 - Sass support (Dart Sass)
 
@@ -45,7 +45,7 @@ This boilerplate has been updated to use:
 - MailHog for email testing
 - Docker Compose for orchestration
 - PHPUnit 11.5 for testing
-- PHPStan 2.0 for static analysis
+- PHPStan 2.2 for static analysis
 
 ## 🛠️ Installation
 

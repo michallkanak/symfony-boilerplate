@@ -32,7 +32,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     /**
-     * Plain password for form editing (not persisted to database)
+     * Plain password for form editing (not persisted to database).
      */
     private ?string $plainPassword = null;
 
@@ -57,18 +57,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * A visual identifier that represents this user.
      *
      * @see UserInterface
+     *
      * @return non-empty-string
      */
     public function getUserIdentifier(): string
     {
         $identifier = (string) $this->email;
-        assert($identifier !== '', 'User email must not be empty');
-        
+        assert('' !== $identifier, 'User email must not be empty');
+
         return $identifier;
     }
 
     /**
      * @see UserInterface
+     *
      * @return array<string>
      */
     public function getRoles(): array

@@ -20,7 +20,7 @@ class CreateAdminCommand extends Command
 {
     public function __construct(
         private EntityManagerInterface $entityManager,
-        private UserPasswordHasherInterface $passwordHasher
+        private UserPasswordHasherInterface $passwordHasher,
     ) {
         parent::__construct();
     }
@@ -35,7 +35,7 @@ class CreateAdminCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        
+
         /** @var string $email */
         $email = $input->getArgument('email');
         /** @var string $password */
@@ -43,9 +43,10 @@ class CreateAdminCommand extends Command
 
         // Check if user already exists
         $existingUser = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
-        
+
         if ($existingUser) {
             $io->error(sprintf('User with email "%s" already exists!', $email));
+
             return Command::FAILURE;
         }
 
@@ -53,7 +54,7 @@ class CreateAdminCommand extends Command
         $user = new User();
         $user->setEmail($email);
         $user->setRoles(['ROLE_ADMIN']);
-        
+
         $hashedPassword = $this->passwordHasher->hashPassword($user, $password);
         $user->setPassword($hashedPassword);
 

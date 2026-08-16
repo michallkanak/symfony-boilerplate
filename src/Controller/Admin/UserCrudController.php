@@ -18,7 +18,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class UserCrudController extends AbstractCrudController
 {
     public function __construct(
-        private UserPasswordHasherInterface $passwordHasher
+        private UserPasswordHasherInterface $passwordHasher,
     ) {
     }
 
@@ -42,7 +42,7 @@ class UserCrudController extends AbstractCrudController
         yield EmailField::new('email');
         yield TextField::new('plainPassword', 'Password')
             ->setFormType(PasswordType::class)
-            ->setRequired($pageName === Crud::PAGE_NEW)
+            ->setRequired(Crud::PAGE_NEW === $pageName)
             ->onlyOnForms();
         yield ChoiceField::new('roles')
             ->setChoices([
@@ -59,7 +59,7 @@ class UserCrudController extends AbstractCrudController
      */
     public function persistEntity($entityManager, $entityInstance): void
     {
-        /** @var User $entityInstance */
+        /* @var User $entityInstance */
         $this->hashPassword($entityInstance);
         parent::persistEntity($entityManager, $entityInstance);
     }
@@ -69,7 +69,7 @@ class UserCrudController extends AbstractCrudController
      */
     public function updateEntity($entityManager, $entityInstance): void
     {
-        /** @var User $entityInstance */
+        /* @var User $entityInstance */
         $this->hashPassword($entityInstance);
         parent::updateEntity($entityManager, $entityInstance);
     }
